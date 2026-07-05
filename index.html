@@ -917,6 +917,27 @@
   </footer>
 
   <script>
+
+    // LOADER
+    const loaderStatuses = ['Loading assets...','Spawning player...','Equipping skills...','Loading missions...','Almost ready...'];
+    const fill = document.getElementById('loader-fill');
+    const percent = document.getElementById('loader-percent');
+    const status = document.getElementById('loader-status');
+    const loader = document.getElementById('loader');
+    let progress = 0;
+    const interval = setInterval(() => {
+      const jump = Math.floor(Math.random() * 12) + 4;
+      progress = Math.min(progress + jump, 100);
+      fill.style.width = progress + '%';
+      percent.textContent = progress + '%';
+      status.textContent = loaderStatuses[Math.min(Math.floor(progress / 22), 4)];
+      if (progress >= 100) {
+        clearInterval(interval);
+        status.textContent = 'PRESS START';
+        setTimeout(() => { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 700); }, 400);
+      }
+    }, 80);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
