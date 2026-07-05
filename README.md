@@ -1,4 +1,3 @@
-# Portfolio
 # Aryan Burman — Portfolio
 
 Personal portfolio website built with pure HTML & CSS — no frameworks.
