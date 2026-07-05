@@ -3,7 +3,8 @@
 Personal portfolio website built with pure HTML & CSS — no frameworks.
 
 ## Live Site
-https://aryan-20-2006.github.io/aryan-burman/
+Professional version-aryan-20-2006.github.io/aryan-burman/professional.html
+Arcade version-https://aryan-20-2006.github.io/aryan-burman/
 
 ## About
 Arcade-themed portfolio showcasing my projects, skills, and achievements.
