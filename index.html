@@ -11,13 +11,13 @@
     :root {
       --bg: #000000;
       --surface: #0A0A0A;
-      --pink: #FF2D78;
-      --cyan: #00F5FF;
-      --yellow: #FFE600;
-      --purple: #B94FFF;
-      --green: #39FF14;
+      --cyan: #00C8D7;
+      --yellow: #D4A800;
+      --purple: #9B59D0;
+      --green: #2ECC71;
       --muted: #444;
-      --text: #E0E0E0;
+      --text: #C8C8C8;
+      --text-bright: #E8E8E8;
       --pixel: 'Press Start 2P', monospace;
       --mono: 'Share Tech Mono', monospace;
     }
@@ -28,8 +28,8 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--mono);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
@@ -42,8 +42,8 @@
         to bottom,
         transparent,
         transparent 3px,
-        rgba(0,0,0,0.15) 3px,
-        rgba(0,0,0,0.15) 4px
+        rgba(0,0,0,0.1) 3px,
+        rgba(0,0,0,0.1) 4px
       );
       pointer-events: none;
       z-index: 9999;
@@ -51,20 +51,21 @@
 
     /* MARQUEE TOP BAR */
     .marquee-bar {
-      background: var(--pink);
-      padding: 6px 0;
+      background: #0D0D0D;
+      padding: 7px 0;
       overflow: hidden;
       white-space: nowrap;
-      border-bottom: 2px solid var(--yellow);
+      border-bottom: 2px solid var(--cyan);
     }
 
     .marquee-inner {
       display: inline-block;
-      animation: marquee 18s linear infinite;
-      font-family: var(--pixel);
-      font-size: 8px;
-      color: #000;
-      letter-spacing: 0.1em;
+      animation: marquee 20s linear infinite;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 6px rgba(0,200,215,0.4);
     }
 
     @keyframes marquee {
@@ -78,7 +79,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 48px;
-      border-bottom: 2px solid var(--muted);
+      border-bottom: 1px solid #1a1a1a;
       background: var(--bg);
       position: sticky;
       top: 0;
@@ -90,7 +91,7 @@
       font-size: 10px;
       color: var(--cyan);
       text-decoration: none;
-      text-shadow: 0 0 10px var(--cyan);
+      text-shadow: 0 0 8px rgba(0,200,215,0.5);
     }
 
     .nav-links {
@@ -100,17 +101,17 @@
     }
 
     .nav-links a {
-      font-family: var(--pixel);
-      font-size: 7px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--muted);
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.15s;
     }
 
-    .nav-links a:hover { color: var(--yellow); text-shadow: 0 0 8px var(--yellow); }
+    .nav-links a:hover { color: var(--yellow); text-shadow: 0 0 6px rgba(212,168,0,0.5); }
 
-    /* HERO — ARCADE TITLE SCREEN */
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -127,23 +128,23 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.4) 0%, transparent 100%);
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.3) 0%, transparent 100%);
       pointer-events: none;
     }
 
     .hero-eyebrow {
-      font-family: var(--pixel);
-      font-size: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--yellow);
       letter-spacing: 0.2em;
       margin-bottom: 32px;
-      text-shadow: 0 0 12px var(--yellow);
+      text-shadow: 0 0 8px rgba(212,168,0,0.5);
     }
 
     .hero-title {
@@ -153,28 +154,27 @@
       line-height: 1.3;
       letter-spacing: 0.05em;
       text-shadow:
-        0 0 20px var(--cyan),
-        0 0 40px rgba(0,245,255,0.4),
-        4px 4px 0px var(--purple);
+        0 0 16px rgba(0,200,215,0.4),
+        3px 3px 0px #1a1a3a;
       margin-bottom: 8px;
     }
 
     .hero-subtitle {
-      font-family: var(--pixel);
-      font-size: clamp(10px, 1.5vw, 16px);
-      color: var(--pink);
-      text-shadow: 0 0 12px var(--pink), 2px 2px 0 #800040;
+      font-family: var(--mono);
+      font-size: clamp(13px, 1.5vw, 16px);
+      color: #888;
       margin-bottom: 48px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
     }
 
     .insert-coin {
-      font-family: var(--pixel);
-      font-size: 10px;
+      font-family: var(--mono);
+      font-size: 13px;
       color: var(--yellow);
       letter-spacing: 0.15em;
       animation: blink 1s step-end infinite;
       margin-bottom: 48px;
+      text-shadow: 0 0 6px rgba(212,168,0,0.4);
     }
 
     @keyframes blink { 50% { opacity: 0; } }
@@ -190,8 +190,8 @@
     .score-item { text-align: center; }
 
     .score-label {
-      font-family: var(--pixel);
-      font-size: 7px;
+      font-family: var(--mono);
+      font-size: 11px;
       color: var(--muted);
       display: block;
       margin-bottom: 8px;
@@ -199,10 +199,10 @@
     }
 
     .score-value {
-      font-family: var(--pixel);
-      font-size: 18px;
+      font-family: var(--mono);
+      font-size: 28px;
       color: var(--yellow);
-      text-shadow: 0 0 12px var(--yellow);
+      text-shadow: 0 0 8px rgba(212,168,0,0.4);
     }
 
     .hero-cta {
@@ -213,8 +213,8 @@
     }
 
     .btn-arcade {
-      font-family: var(--pixel);
-      font-size: 9px;
+      font-family: var(--mono);
+      font-size: 13px;
       text-decoration: none;
       padding: 14px 24px;
       letter-spacing: 0.05em;
@@ -222,27 +222,26 @@
       display: inline-block;
     }
 
-    .btn-arcade.pink {
-      background: var(--pink);
+    .btn-arcade.solid {
+      background: var(--cyan);
       color: #000;
-      box-shadow: 4px 4px 0 #800040;
+      box-shadow: 3px 3px 0 #005060;
     }
 
-    .btn-arcade.pink:hover {
+    .btn-arcade.solid:hover {
       transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 #800040;
+      box-shadow: 1px 1px 0 #005060;
     }
 
     .btn-arcade.outline {
-      border: 2px solid var(--cyan);
-      color: var(--cyan);
-      box-shadow: 4px 4px 0 #005060;
-      text-shadow: 0 0 8px var(--cyan);
+      border: 2px solid var(--yellow);
+      color: var(--yellow);
+      box-shadow: 3px 3px 0 #332800;
     }
 
     .btn-arcade.outline:hover {
       transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 #005060;
+      box-shadow: 1px 1px 0 #332800;
     }
 
     /* PIXEL DIVIDER */
@@ -250,41 +249,37 @@
       height: 4px;
       background: repeating-linear-gradient(
         90deg,
-        var(--pink) 0px,
-        var(--pink) 8px,
+        var(--cyan) 0px,
+        var(--cyan) 8px,
         var(--yellow) 8px,
         var(--yellow) 16px,
-        var(--cyan) 16px,
-        var(--cyan) 24px,
+        var(--purple) 16px,
         var(--purple) 24px,
-        var(--purple) 32px
+        #1a1a1a 24px,
+        #1a1a1a 32px
       );
     }
 
     /* SECTIONS */
-    section {
-      padding: 80px 60px;
-    }
+    section { padding: 80px 60px; }
 
-    .section-header {
-      margin-bottom: 48px;
-    }
+    .section-header { margin-bottom: 48px; }
 
     .section-eyebrow {
-      font-family: var(--pixel);
-      font-size: 7px;
-      color: var(--pink);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--cyan);
       letter-spacing: 0.15em;
-      text-shadow: 0 0 8px var(--pink);
+      text-shadow: 0 0 6px rgba(0,200,215,0.3);
       display: block;
       margin-bottom: 16px;
     }
 
     .section-title {
       font-family: var(--pixel);
-      font-size: clamp(14px, 2.5vw, 22px);
-      color: var(--cyan);
-      text-shadow: 0 0 12px rgba(0,245,255,0.5), 2px 2px 0 var(--purple);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: var(--text-bright);
+      text-shadow: 2px 2px 0 #1a1a2a;
       line-height: 1.5;
     }
 
@@ -298,13 +293,13 @@
 
     .about-text p {
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: 15px;
       color: #888;
       line-height: 1.9;
       margin-bottom: 16px;
     }
 
-    .about-text p strong { color: var(--text); }
+    .about-text p strong { color: var(--text-bright); }
 
     .stat-bars { display: flex; flex-direction: column; gap: 20px; }
 
@@ -317,14 +312,13 @@
       font-size: 7px;
     }
 
-    .stat-name { color: var(--muted); letter-spacing: 0.08em; }
-    .stat-num { color: var(--yellow); }
+    .stat-name { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+    .stat-num { font-family: var(--mono); font-size: 12px; color: var(--yellow); }
 
     .stat-bar {
       height: 10px;
       background: #111;
-      border: 1px solid #222;
-      position: relative;
+      border: 1px solid #1e1e1e;
       overflow: hidden;
     }
 
@@ -332,13 +326,12 @@
       height: 100%;
       width: 0%;
       transition: width 1.2s steps(20, end);
-      position: relative;
     }
 
-    .stat-fill.cyan { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
-    .stat-fill.pink { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
-    .stat-fill.yellow { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
-    .stat-fill.purple { background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+    .stat-fill.cyan { background: var(--cyan); box-shadow: 0 0 6px rgba(0,200,215,0.4); }
+    .stat-fill.yellow { background: var(--yellow); box-shadow: 0 0 6px rgba(212,168,0,0.4); }
+    .stat-fill.purple { background: var(--purple); box-shadow: 0 0 6px rgba(155,89,208,0.4); }
+    .stat-fill.green { background: var(--green); box-shadow: 0 0 6px rgba(46,204,113,0.4); }
 
     /* MISSIONS */
     .missions-grid {
@@ -349,21 +342,20 @@
 
     .mission-card {
       background: var(--surface);
-      border: 2px solid #222;
+      border: 2px solid #1a1a1a;
       padding: 28px;
       position: relative;
       transition: border-color 0.15s;
     }
 
-    /* pixel corner effect */
     .mission-card::before {
       content: '';
       position: absolute;
       top: -2px; left: -2px;
       width: 12px; height: 12px;
       background: var(--bg);
-      border-right: 2px solid #222;
-      border-bottom: 2px solid #222;
+      border-right: 2px solid #1a1a1a;
+      border-bottom: 2px solid #1a1a1a;
     }
 
     .mission-card::after {
@@ -372,15 +364,15 @@
       bottom: -2px; right: -2px;
       width: 12px; height: 12px;
       background: var(--bg);
-      border-left: 2px solid #222;
-      border-top: 2px solid #222;
+      border-left: 2px solid #1a1a1a;
+      border-top: 2px solid #1a1a1a;
     }
 
-    .mission-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,245,255,0.1); }
+    .mission-card:hover { border-color: var(--cyan); }
 
     .mission-status {
-      font-family: var(--pixel);
-      font-size: 7px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--green);
       letter-spacing: 0.1em;
       margin-bottom: 16px;
@@ -397,17 +389,17 @@
 
     .mission-title {
       font-family: var(--pixel);
-      font-size: 14px;
+      font-size: 13px;
       color: var(--yellow);
-      text-shadow: 0 0 10px rgba(255,230,0,0.5), 2px 2px 0 #664000;
+      text-shadow: 2px 2px 0 #332800;
       margin-bottom: 16px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .mission-desc {
       font-family: var(--mono);
-      font-size: 13px;
-      color: #666;
+      font-size: 14px;
+      color: #777;
       line-height: 1.8;
       margin-bottom: 20px;
     }
@@ -420,10 +412,11 @@
     }
 
     .stack-chip {
-      font-family: var(--pixel);
-      font-size: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
       color: var(--purple);
-      border: 1px solid var(--purple);
+      border: 1px solid #2a1a3a;
+      background: #0d0a12;
       padding: 4px 8px;
       letter-spacing: 0.06em;
     }
@@ -436,12 +429,11 @@
     }
 
     .mission-link {
-      font-family: var(--pixel);
-      font-size: 7px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--cyan);
       text-decoration: none;
       letter-spacing: 0.1em;
-      text-shadow: 0 0 8px rgba(0,245,255,0.5);
       transition: opacity 0.15s;
     }
 
@@ -455,19 +447,18 @@
     }
 
     .skill-node {
-      border: 2px solid #1a1a1a;
+      border: 1px solid #1a1a1a;
       padding: 20px;
       background: var(--surface);
       transition: border-color 0.15s;
     }
 
-    .skill-node:hover { border-color: var(--pink); }
+    .skill-node:hover { border-color: var(--cyan); }
 
     .skill-node-title {
-      font-family: var(--pixel);
-      font-size: 7px;
-      color: var(--pink);
-      text-shadow: 0 0 8px var(--pink);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--cyan);
       letter-spacing: 0.12em;
       margin-bottom: 16px;
       padding-bottom: 10px;
@@ -478,8 +469,8 @@
 
     .skill-item {
       font-family: var(--mono);
-      font-size: 12px;
-      color: #666;
+      font-size: 13px;
+      color: #777;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -494,7 +485,7 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      border: 2px solid #1a1a1a;
+      border: 1px solid #1a1a1a;
       padding: 16px 20px;
       background: var(--surface);
       transition: border-color 0.15s;
@@ -502,22 +493,18 @@
 
     .achievement:hover { border-color: var(--yellow); }
 
-    .ach-icon {
-      font-family: var(--pixel);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
+    .ach-icon { font-size: 16px; flex-shrink: 0; }
 
     .ach-text {
       font-family: var(--mono);
-      font-size: 13px;
-      color: #666;
+      font-size: 14px;
+      color: #777;
       line-height: 1.7;
     }
 
     .ach-text strong {
-      font-family: var(--pixel);
-      font-size: 8px;
+      font-family: var(--mono);
+      font-size: 13px;
       color: var(--yellow);
       display: block;
       margin-bottom: 6px;
@@ -526,8 +513,8 @@
 
     /* CONTACT */
     .contact-box {
-      max-width: 600px;
-      border: 2px solid #222;
+      max-width: 580px;
+      border: 2px solid #1a1a1a;
       padding: 40px;
       background: var(--surface);
       position: relative;
@@ -538,16 +525,16 @@
       top: -10px; left: 20px;
       background: var(--bg);
       padding: 0 10px;
-      font-family: var(--pixel);
-      font-size: 7px;
-      color: var(--pink);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
       letter-spacing: 0.1em;
     }
 
     .contact-box p {
       font-family: var(--mono);
-      font-size: 14px;
-      color: #666;
+      font-size: 15px;
+      color: #777;
       line-height: 1.8;
       margin-bottom: 32px;
     }
@@ -561,9 +548,83 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--pixel);
-      font-size: 7px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--muted);
+    }
+
+
+    /* LOADER */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      transition: opacity 0.6s ease;
+    }
+
+    #loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-title {
+      font-family: var(--pixel);
+      font-size: clamp(16px, 3vw, 28px);
+      color: var(--cyan);
+      text-shadow: 0 0 16px rgba(0,200,215,0.6);
+      letter-spacing: 0.1em;
+    }
+
+    .loader-sub {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .loader-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 280px;
+    }
+
+    .loader-bar {
+      width: 100%;
+      height: 12px;
+      background: #111;
+      border: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .loader-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px rgba(0,200,215,0.6);
+    }
+
+    .loader-percent {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--yellow);
+      letter-spacing: 0.1em;
+    }
+
+    .loader-status {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      min-height: 16px;
     }
 
     /* REVEAL */
@@ -583,6 +644,18 @@
   </style>
 </head>
 <body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-title">AB.EXE</div>
+    <div class="loader-sub">Initializing portfolio...</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+    </div>
+    <div class="loader-status" id="loader-status">Loading assets...</div>
+  </div>
+
 
   <!-- MARQUEE -->
   <div class="marquee-bar">
@@ -632,7 +705,7 @@
     </div>
 
     <div class="hero-cta">
-      <a href="#projects" class="btn-arcade pink">▸ VIEW MISSIONS</a>
+      <a href="#projects" class="btn-arcade solid">▸ VIEW MISSIONS</a>
       <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
     </div>
   </section>
@@ -664,21 +737,21 @@
             <span class="stat-name">BACKEND / AI</span>
             <span class="stat-num">70/100</span>
           </div>
-          <div class="stat-bar"><div class="stat-fill pink" data-width="70"></div></div>
+          <div class="stat-bar"><div class="stat-fill yellow" data-width="70"></div></div>
         </div>
         <div class="stat-row">
           <div class="stat-top">
             <span class="stat-name">PROBLEM SOLVING</span>
             <span class="stat-num">78/100</span>
           </div>
-          <div class="stat-bar"><div class="stat-fill yellow" data-width="78"></div></div>
+          <div class="stat-bar"><div class="stat-fill purple" data-width="78"></div></div>
         </div>
         <div class="stat-row">
           <div class="stat-top">
             <span class="stat-name">OPEN SOURCE</span>
             <span class="stat-num">65/100</span>
           </div>
-          <div class="stat-bar"><div class="stat-fill purple" data-width="65"></div></div>
+          <div class="stat-bar"><div class="stat-fill green" data-width="65"></div></div>
         </div>
       </div>
     </div>
@@ -693,7 +766,6 @@
       <h2 class="section-title">COMPLETED MISSIONS</h2>
     </div>
     <div class="missions-grid">
-
       <div class="mission-card reveal">
         <div class="mission-status">MISSION COMPLETE</div>
         <h3 class="mission-title">TRACEAI</h3>
@@ -725,7 +797,6 @@
           <a href="https://github.com/Aryan-20-2006/Forest-Survival" target="_blank" class="mission-link">▸ GITHUB</a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -833,7 +904,7 @@
       <span class="contact-box-label">★ PLAYER 2 PRESS START ★</span>
       <p>Currently seeking SDE internships. If you're working on something interesting or want to talk, reach out.</p>
       <div class="contact-links">
-        <a href="mailto:daringdumplings@gmail.com" class="btn-arcade pink">▸ EMAIL</a>
+        <a href="mailto:daringdumplings@gmail.com" class="btn-arcade solid">▸ EMAIL</a>
         <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
       </div>
     </div>
@@ -845,7 +916,6 @@
   </footer>
 
   <script>
-    // Scroll reveal + stat bar animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
