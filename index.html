@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ARYAN BURMAN — PORTFOLIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --surface: #0A0A0A;
+      --pink: #FF2D78;
+      --cyan: #00F5FF;
+      --yellow: #FFE600;
+      --purple: #B94FFF;
+      --green: #39FF14;
+      --muted: #444;
+      --text: #E0E0E0;
+      --pixel: 'Press Start 2P', monospace;
+      --mono: 'Share Tech Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.15) 3px,
+        rgba(0,0,0,0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* MARQUEE TOP BAR */
+    .marquee-bar {
+      background: var(--pink);
+      padding: 6px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--yellow);
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+      font-family: var(--pixel);
+      font-size: 8px;
+      color: #000;
+      letter-spacing: 0.1em;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      border-bottom: 2px solid var(--muted);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--pixel);
+      font-size: 10px;
+      color: var(--cyan);
+      text-decoration: none;
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); text-shadow: 0 0 8px var(--yellow); }
+
+    /* HERO — ARCADE TITLE SCREEN */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.4) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--pixel);
+      font-size: 8px;
+      color: var(--yellow);
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+      text-shadow: 0 0 12px var(--yellow);
+    }
+
+    .hero-title {
+      font-family: var(--pixel);
+      font-size: clamp(28px, 5vw, 56px);
+      color: var(--cyan);
+      line-height: 1.3;
+      letter-spacing: 0.05em;
+      text-shadow:
+        0 0 20px var(--cyan),
+        0 0 40px rgba(0,245,255,0.4),
+        4px 4px 0px var(--purple);
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--pixel);
+      font-size: clamp(10px, 1.5vw, 16px);
+      color: var(--pink);
+      text-shadow: 0 0 12px var(--pink), 2px 2px 0 #800040;
+      margin-bottom: 48px;
+      letter-spacing: 0.05em;
+    }
+
+    .insert-coin {
+      font-family: var(--pixel);
+      font-size: 10px;
+      color: var(--yellow);
+      letter-spacing: 0.15em;
+      animation: blink 1s step-end infinite;
+      margin-bottom: 48px;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-scores {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .score-item { text-align: center; }
+
+    .score-label {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    .score-value {
+      font-family: var(--pixel);
+      font-size: 18px;
+      color: var(--yellow);
+      text-shadow: 0 0 12px var(--yellow);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-arcade {
+      font-family: var(--pixel);
+      font-size: 9px;
+      text-decoration: none;
+      padding: 14px 24px;
+      letter-spacing: 0.05em;
+      transition: all 0.1s;
+      display: inline-block;
+    }
+
+    .btn-arcade.pink {
+      background: var(--pink);
+      color: #000;
+      box-shadow: 4px 4px 0 #800040;
+    }
+
+    .btn-arcade.pink:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #800040;
+    }
+
+    .btn-arcade.outline {
+      border: 2px solid var(--cyan);
+      color: var(--cyan);
+      box-shadow: 4px 4px 0 #005060;
+      text-shadow: 0 0 8px var(--cyan);
+    }
+
+    .btn-arcade.outline:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #005060;
+    }
+
+    /* PIXEL DIVIDER */
+    .pixel-divider {
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--pink) 0px,
+        var(--pink) 8px,
+        var(--yellow) 8px,
+        var(--yellow) 16px,
+        var(--cyan) 16px,
+        var(--cyan) 24px,
+        var(--purple) 24px,
+        var(--purple) 32px
+      );
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 60px;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--pink);
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 8px var(--pink);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--pixel);
+      font-size: clamp(14px, 2.5vw, 22px);
+      color: var(--cyan);
+      text-shadow: 0 0 12px rgba(0,245,255,0.5), 2px 2px 0 var(--purple);
+      line-height: 1.5;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: #888;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    .about-text p strong { color: var(--text); }
+
+    .stat-bars { display: flex; flex-direction: column; gap: 20px; }
+
+    .stat-row { display: flex; flex-direction: column; gap: 8px; }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--pixel);
+      font-size: 7px;
+    }
+
+    .stat-name { color: var(--muted); letter-spacing: 0.08em; }
+    .stat-num { color: var(--yellow); }
+
+    .stat-bar {
+      height: 10px;
+      background: #111;
+      border: 1px solid #222;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 1.2s steps(20, end);
+      position: relative;
+    }
+
+    .stat-fill.cyan { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+    .stat-fill.pink { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+    .stat-fill.yellow { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+    .stat-fill.purple { background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+
+    /* MISSIONS */
+    .missions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .mission-card {
+      background: var(--surface);
+      border: 2px solid #222;
+      padding: 28px;
+      position: relative;
+      transition: border-color 0.15s;
+    }
+
+    /* pixel corner effect */
+    .mission-card::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px;
+      width: 12px; height: 12px;
+      background: var(--bg);
+      border-right: 2px solid #222;
+      border-bottom: 2px solid #222;
+    }
+
+    .mission-card::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; right: -2px;
+      width: 12px; height: 12px;
+      background: var(--bg);
+      border-left: 2px solid #222;
+      border-top: 2px solid #222;
+    }
+
+    .mission-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,245,255,0.1); }
+
+    .mission-status {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mission-status::before {
+      content: '■';
+      font-size: 8px;
+      animation: blink 1.5s step-end infinite;
+    }
+
+    .mission-title {
+      font-family: var(--pixel);
+      font-size: 14px;
+      color: var(--yellow);
+      text-shadow: 0 0 10px rgba(255,230,0,0.5), 2px 2px 0 #664000;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .mission-desc {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .mission-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .stack-chip {
+      font-family: var(--pixel);
+      font-size: 6px;
+      color: var(--purple);
+      border: 1px solid var(--purple);
+      padding: 4px 8px;
+      letter-spacing: 0.06em;
+    }
+
+    .mission-links {
+      border-top: 1px solid #1a1a1a;
+      padding-top: 16px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .mission-link {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--cyan);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px rgba(0,245,255,0.5);
+      transition: opacity 0.15s;
+    }
+
+    .mission-link:hover { opacity: 0.6; }
+
+    /* SKILL TREE */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-node {
+      border: 2px solid #1a1a1a;
+      padding: 20px;
+      background: var(--surface);
+      transition: border-color 0.15s;
+    }
+
+    .skill-node:hover { border-color: var(--pink); }
+
+    .skill-node-title {
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--pink);
+      text-shadow: 0 0 8px var(--pink);
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .skill-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .skill-item {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-item::before { content: '▸'; color: var(--cyan); font-size: 10px; }
+
+    /* ACHIEVEMENTS */
+    .achievement-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+
+    .achievement {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      border: 2px solid #1a1a1a;
+      padding: 16px 20px;
+      background: var(--surface);
+      transition: border-color 0.15s;
+    }
+
+    .achievement:hover { border-color: var(--yellow); }
+
+    .ach-icon {
+      font-family: var(--pixel);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .ach-text {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .ach-text strong {
+      font-family: var(--pixel);
+      font-size: 8px;
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 600px;
+      border: 2px solid #222;
+      padding: 40px;
+      background: var(--surface);
+      position: relative;
+    }
+
+    .contact-box-label {
+      position: absolute;
+      top: -10px; left: 20px;
+      background: var(--bg);
+      padding: 0 10px;
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--pink);
+      letter-spacing: 0.1em;
+    }
+
+    .contact-box p {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 60px;
+      border-top: 1px solid #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--pixel);
+      font-size: 7px;
+      color: var(--muted);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 768px) {
+      nav, section, footer { padding-left: 20px; padding-right: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner">
+      ★ ARYAN BURMAN ★ GAME DEVELOPER ★ CS ENGINEER ★ PES UNIVERSITY BENGALURU ★ SEEKING INTERNSHIP ★ UNITY · FASTAPI · PYTHON · C# ★ INSERT COIN TO CONTINUE ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      ★ ARYAN BURMAN ★ GAME DEVELOPER ★ CS ENGINEER ★ PES UNIVERSITY BENGALURU ★ SEEKING INTERNSHIP ★ UNITY · FASTAPI · PYTHON · C# ★ INSERT COIN TO CONTINUE ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">AB.EXE</a>
+    <ul class="nav-links">
+      <li><a href="#about">STATS</a></li>
+      <li><a href="#projects">MISSIONS</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#achievements">UNLOCKS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-stars"></div>
+    <p class="hero-eyebrow">★ PLAYER SELECT ★</p>
+    <h1 class="hero-title">ARYAN<br>BURMAN</h1>
+    <p class="hero-subtitle">CS ENG + GAME DEV + AI BUILDER</p>
+    <p class="insert-coin">— INSERT COIN TO CONTINUE —</p>
+
+    <div class="hero-scores">
+      <div class="score-item">
+        <span class="score-label">CGPA</span>
+        <span class="score-value">8.1</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">PROJECTS</span>
+        <span class="score-value">02</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">PRs MERGED</span>
+        <span class="score-value">04</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">HACKATHONS</span>
+        <span class="score-value">03</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn-arcade pink">▸ VIEW MISSIONS</a>
+      <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
+    </div>
+  </section>
+
+  <div class="pixel-divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-eyebrow">// CHARACTER SELECT //</span>
+      <h2 class="section-title">PLAYER STATS</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>3rd year CS student at <strong>PES University Bengaluru</strong>. I don't learn by watching tutorials — I learn by building things and figuring out why they break.</p>
+        <p>My work spans <strong>game development</strong> in Unity and <strong>backend/AI engineering</strong> in Python. I shipped a 3D survival game, built a full RAG pipeline from scratch, and contributed to open source in my 3rd semester.</p>
+        <p>Currently seeking SDE internships — looking for a place to build real things with people who care about craft.</p>
+      </div>
+      <div class="stat-bars">
+        <div class="stat-row">
+          <div class="stat-top">
+            <span class="stat-name">GAME DEV</span>
+            <span class="stat-num">82/100</span>
+          </div>
+          <div class="stat-bar"><div class="stat-fill cyan" data-width="82"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-top">
+            <span class="stat-name">BACKEND / AI</span>
+            <span class="stat-num">70/100</span>
+          </div>
+          <div class="stat-bar"><div class="stat-fill pink" data-width="70"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-top">
+            <span class="stat-name">PROBLEM SOLVING</span>
+            <span class="stat-num">78/100</span>
+          </div>
+          <div class="stat-bar"><div class="stat-fill yellow" data-width="78"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-top">
+            <span class="stat-name">OPEN SOURCE</span>
+            <span class="stat-num">65/100</span>
+          </div>
+          <div class="stat-bar"><div class="stat-fill purple" data-width="65"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pixel-divider"></div>
+
+  <!-- MISSIONS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-eyebrow">// MISSION LOG //</span>
+      <h2 class="section-title">COMPLETED MISSIONS</h2>
+    </div>
+    <div class="missions-grid">
+
+      <div class="mission-card reveal">
+        <div class="mission-status">MISSION COMPLETE</div>
+        <h3 class="mission-title">TRACEAI</h3>
+        <p class="mission-desc">A RAG pipeline built from scratch — upload any PDF, ask questions in plain English, get answers traced back to their source. No hallucination. Every answer cites the exact chunks it used.</p>
+        <div class="mission-stack">
+          <span class="stack-chip">FASTAPI</span>
+          <span class="stack-chip">LANGCHAIN</span>
+          <span class="stack-chip">FAISS</span>
+          <span class="stack-chip">GEMINI</span>
+          <span class="stack-chip">PYTHON</span>
+        </div>
+        <div class="mission-links">
+          <a href="https://rag-doc-qa-aryan.onrender.com/app" target="_blank" class="mission-link">▸ LIVE DEMO</a>
+          <a href="https://github.com/Aryan-20-2006/traceai" target="_blank" class="mission-link">▸ GITHUB</a>
+        </div>
+      </div>
+
+      <div class="mission-card reveal">
+        <div class="mission-status">MISSION COMPLETE</div>
+        <h3 class="mission-title">FOREST SURVIVAL</h3>
+        <p class="mission-desc">A 3D survival game in Unity — resource collection, hunger and campfire systems, day-night cycles, full menu-to-end-game flow. Rebuilt with systems-first architecture after v1 became impossible to extend.</p>
+        <div class="mission-stack">
+          <span class="stack-chip">UNITY 3D</span>
+          <span class="stack-chip">C#</span>
+          <span class="stack-chip">OOP</span>
+          <span class="stack-chip">GAME ARCH</span>
+        </div>
+        <div class="mission-links">
+          <a href="https://github.com/Aryan-20-2006/Forest-Survival" target="_blank" class="mission-link">▸ GITHUB</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="pixel-divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-eyebrow">// SKILL TREE //</span>
+      <h2 class="section-title">UNLOCKED SKILLS</h2>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill-node">
+        <div class="skill-node-title">LANGUAGES</div>
+        <div class="skill-list">
+          <span class="skill-item">Python</span>
+          <span class="skill-item">C#</span>
+          <span class="skill-item">C++</span>
+          <span class="skill-item">JavaScript</span>
+          <span class="skill-item">HTML / CSS</span>
+          <span class="skill-item">C</span>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="skill-node-title">BACKEND & AI</div>
+        <div class="skill-list">
+          <span class="skill-item">FastAPI</span>
+          <span class="skill-item">LangChain</span>
+          <span class="skill-item">FAISS</span>
+          <span class="skill-item">RAG Pipelines</span>
+          <span class="skill-item">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="skill-node-title">GAME DEV</div>
+        <div class="skill-list">
+          <span class="skill-item">Unity 2D / 3D</span>
+          <span class="skill-item">Game Loop Design</span>
+          <span class="skill-item">Level Design</span>
+          <span class="skill-item">Systems Arch</span>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="skill-node-title">TOOLS</div>
+        <div class="skill-list">
+          <span class="skill-item">GitHub</span>
+          <span class="skill-item">VS Code</span>
+          <span class="skill-item">Render</span>
+          <span class="skill-item">Unity Editor</span>
+          <span class="skill-item">Notion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pixel-divider"></div>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-header">
+      <span class="section-eyebrow">// ACHIEVEMENT LOG //</span>
+      <h2 class="section-title">UNLOCKED</h2>
+    </div>
+    <div class="achievement-list reveal">
+      <div class="achievement">
+        <span class="ach-icon">🏆</span>
+        <div class="ach-text">
+          <strong>CNR RAO SCHOLAR</strong>
+          ₹1,00,000 awarded for academic excellence at PES University EC (2024–25)
+        </div>
+      </div>
+      <div class="achievement">
+        <span class="ach-icon">⭐</span>
+        <div class="ach-text">
+          <strong>DISTINCTION CERTIFICATES</strong>
+          ₹2,000 awards for academic performance in 2nd and 3rd semesters
+        </div>
+      </div>
+      <div class="achievement">
+        <span class="ach-icon">🎮</span>
+        <div class="ach-text">
+          <strong>DELTATIME GAMEJAM — PARALLAX PESU EC</strong>
+          Participated twice. 4th sem shipped a polished 2D platformer surpassing the original 2nd sem vision when first learning Unity.
+        </div>
+      </div>
+      <div class="achievement">
+        <span class="ach-icon">🔀</span>
+        <div class="ach-text">
+          <strong>HACKNIGHT 2025 — ACM PESU EC</strong>
+          4 merged PRs to an open-source Verilog repo (Shift Register, FIFO, LFSR, Parallel-to-Serial) — one of the few 3rd-semester participants.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pixel-divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-eyebrow">// NEW GAME //</span>
+      <h2 class="section-title">CONTINUE?</h2>
+    </div>
+    <div class="contact-box reveal">
+      <span class="contact-box-label">★ PLAYER 2 PRESS START ★</span>
+      <p>Currently seeking SDE internships. If you're working on something interesting or want to talk, reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:daringdumplings@gmail.com" class="btn-arcade pink">▸ EMAIL</a>
+        <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© ARYAN BURMAN — BENGALURU, INDIA</span>
+    <span>NO FRAMEWORKS. JUST CODE. <span style="animation: blink 1s step-end infinite; display:inline-block;">█</span></span>
+  </footer>
+
+  <script>
+    // Scroll reveal + stat bar animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          e.target.querySelectorAll('.stat-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
