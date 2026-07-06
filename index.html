@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* CRT scanlines */
     body::after {
       content: '';
       position: fixed;
@@ -49,7 +48,6 @@
       z-index: 9999;
     }
 
-    /* MARQUEE TOP BAR */
     .marquee-bar {
       background: #0D0D0D;
       padding: 7px 0;
@@ -73,7 +71,6 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -94,11 +91,7 @@
       text-shadow: 0 0 8px rgba(0,200,215,0.5);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
 
     .nav-links a {
       font-family: var(--mono);
@@ -111,7 +104,6 @@
 
     .nav-links a:hover { color: var(--yellow); text-shadow: 0 0 6px rgba(212,168,0,0.5); }
 
-    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -153,9 +145,7 @@
       color: var(--cyan);
       line-height: 1.3;
       letter-spacing: 0.05em;
-      text-shadow:
-        0 0 16px rgba(0,200,215,0.4),
-        3px 3px 0px #1a1a3a;
+      text-shadow: 0 0 16px rgba(0,200,215,0.4), 3px 3px 0px #1a1a3a;
       margin-bottom: 8px;
     }
 
@@ -205,12 +195,7 @@
       text-shadow: 0 0 8px rgba(212,168,0,0.4);
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .hero-cta { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
     .btn-arcade {
       font-family: var(--mono);
@@ -222,45 +207,22 @@
       display: inline-block;
     }
 
-    .btn-arcade.solid {
-      background: var(--cyan);
-      color: #000;
-      box-shadow: 3px 3px 0 #005060;
-    }
+    .btn-arcade.solid { background: var(--cyan); color: #000; box-shadow: 3px 3px 0 #005060; }
+    .btn-arcade.solid:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #005060; }
+    .btn-arcade.outline { border: 2px solid var(--yellow); color: var(--yellow); box-shadow: 3px 3px 0 #332800; }
+    .btn-arcade.outline:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #332800; }
 
-    .btn-arcade.solid:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 #005060;
-    }
-
-    .btn-arcade.outline {
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
-      box-shadow: 3px 3px 0 #332800;
-    }
-
-    .btn-arcade.outline:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 #332800;
-    }
-
-    /* PIXEL DIVIDER */
     .pixel-divider {
       height: 4px;
       background: repeating-linear-gradient(
         90deg,
-        var(--cyan) 0px,
-        var(--cyan) 8px,
-        var(--yellow) 8px,
-        var(--yellow) 16px,
-        var(--purple) 16px,
-        var(--purple) 24px,
-        #1a1a1a 24px,
-        #1a1a1a 32px
+        var(--cyan) 0px, var(--cyan) 8px,
+        var(--yellow) 8px, var(--yellow) 16px,
+        var(--purple) 16px, var(--purple) 24px,
+        #1a1a1a 24px, #1a1a1a 32px
       );
     }
 
-    /* SECTIONS */
     section { padding: 80px 60px; }
 
     .section-header { margin-bottom: 48px; }
@@ -283,7 +245,6 @@
       line-height: 1.5;
     }
 
-    /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -302,7 +263,6 @@
     .about-text p strong { color: var(--text-bright); }
 
     .stat-bars { display: flex; flex-direction: column; gap: 20px; }
-
     .stat-row { display: flex; flex-direction: column; gap: 8px; }
 
     .stat-top {
@@ -315,12 +275,7 @@
     .stat-name { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
     .stat-num { font-family: var(--mono); font-size: 12px; color: var(--yellow); }
 
-    .stat-bar {
-      height: 10px;
-      background: #111;
-      border: 1px solid #1e1e1e;
-      overflow: hidden;
-    }
+    .stat-bar { height: 10px; background: #111; border: 1px solid #1e1e1e; overflow: hidden; }
 
     .stat-fill {
       height: 100%;
@@ -333,7 +288,6 @@
     .stat-fill.purple { background: var(--purple); box-shadow: 0 0 6px rgba(155,89,208,0.4); }
     .stat-fill.green { background: var(--green); box-shadow: 0 0 6px rgba(46,204,113,0.4); }
 
-    /* MISSIONS */
     .missions-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -381,11 +335,7 @@
       gap: 8px;
     }
 
-    .mission-status::before {
-      content: '■';
-      font-size: 8px;
-      animation: blink 1.5s step-end infinite;
-    }
+    .mission-status::before { content: '■'; font-size: 8px; animation: blink 1.5s step-end infinite; }
 
     .mission-title {
       font-family: var(--pixel);
@@ -404,12 +354,7 @@
       margin-bottom: 20px;
     }
 
-    .mission-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
+    .mission-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 
     .stack-chip {
       font-family: var(--mono);
@@ -421,12 +366,7 @@
       letter-spacing: 0.06em;
     }
 
-    .mission-links {
-      border-top: 1px solid #1a1a1a;
-      padding-top: 16px;
-      display: flex;
-      gap: 20px;
-    }
+    .mission-links { border-top: 1px solid #1a1a1a; padding-top: 16px; display: flex; gap: 20px; }
 
     .mission-link {
       font-family: var(--mono);
@@ -439,20 +379,9 @@
 
     .mission-link:hover { opacity: 0.6; }
 
-    /* SKILL TREE */
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
+    .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
 
-    .skill-node {
-      border: 1px solid #1a1a1a;
-      padding: 20px;
-      background: var(--surface);
-      transition: border-color 0.15s;
-    }
-
+    .skill-node { border: 1px solid #1a1a1a; padding: 20px; background: var(--surface); transition: border-color 0.15s; }
     .skill-node:hover { border-color: var(--cyan); }
 
     .skill-node-title {
@@ -478,7 +407,6 @@
 
     .skill-item::before { content: '▸'; color: var(--cyan); font-size: 10px; }
 
-    /* ACHIEVEMENTS */
     .achievement-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
 
     .achievement {
@@ -492,15 +420,9 @@
     }
 
     .achievement:hover { border-color: var(--yellow); }
-
     .ach-icon { font-size: 16px; flex-shrink: 0; }
 
-    .ach-text {
-      font-family: var(--mono);
-      font-size: 14px;
-      color: #777;
-      line-height: 1.7;
-    }
+    .ach-text { font-family: var(--mono); font-size: 14px; color: #777; line-height: 1.7; }
 
     .ach-text strong {
       font-family: var(--mono);
@@ -511,7 +433,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* CONTACT */
     .contact-box {
       max-width: 580px;
       border: 2px solid #1a1a1a;
@@ -531,17 +452,9 @@
       letter-spacing: 0.1em;
     }
 
-    .contact-box p {
-      font-family: var(--mono);
-      font-size: 15px;
-      color: #777;
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
+    .contact-box p { font-family: var(--mono); font-size: 15px; color: #777; line-height: 1.8; margin-bottom: 32px; }
     .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
 
-    /* FOOTER */
     footer {
       padding: 20px 60px;
       border-top: 1px solid #111;
@@ -552,7 +465,6 @@
       font-size: 12px;
       color: var(--muted);
     }
-
 
     /* LOADER */
     #loader {
@@ -568,10 +480,7 @@
       transition: opacity 0.6s ease;
     }
 
-    #loader.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
+    #loader.fade-out { opacity: 0; pointer-events: none; }
 
     .loader-title {
       font-family: var(--pixel);
@@ -581,29 +490,11 @@
       letter-spacing: 0.1em;
     }
 
-    .loader-sub {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
+    .loader-sub { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; }
 
-    .loader-bar-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      width: 280px;
-    }
+    .loader-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 280px; }
 
-    .loader-bar {
-      width: 100%;
-      height: 12px;
-      background: #111;
-      border: 1px solid #222;
-      overflow: hidden;
-    }
+    .loader-bar { width: 100%; height: 12px; background: #111; border: 1px solid #222; overflow: hidden; }
 
     .loader-fill {
       height: 100%;
@@ -613,27 +504,10 @@
       transition: width 0.15s linear;
     }
 
-    .loader-percent {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--yellow);
-      letter-spacing: 0.1em;
-    }
+    .loader-percent { font-family: var(--mono); font-size: 13px; color: var(--yellow); letter-spacing: 0.1em; }
+    .loader-status { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; min-height: 16px; }
 
-    .loader-status {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.15em;
-      min-height: 16px;
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 768px) {
@@ -656,7 +530,6 @@
     </div>
     <div class="loader-status" id="loader-status">Loading assets...</div>
   </div>
-
 
   <!-- MARQUEE -->
   <div class="marquee-bar">
@@ -693,7 +566,7 @@
       </div>
       <div class="score-item">
         <span class="score-label">PROJECTS</span>
-        <span class="score-value">02</span>
+        <span class="score-value">03</span>
       </div>
       <div class="score-item">
         <span class="score-label">PRs MERGED</span>
@@ -767,6 +640,7 @@
       <h2 class="section-title">COMPLETED MISSIONS</h2>
     </div>
     <div class="missions-grid">
+
       <div class="mission-card reveal">
         <div class="mission-status">MISSION COMPLETE</div>
         <h3 class="mission-title">TRACEAI</h3>
@@ -798,6 +672,22 @@
           <a href="https://github.com/Aryan-20-2006/Forest-Survival" target="_blank" class="mission-link">▸ GITHUB</a>
         </div>
       </div>
+
+      <div class="mission-card reveal">
+        <div class="mission-status">MISSION COMPLETE</div>
+        <h3 class="mission-title">SHRINE RUNNER</h3>
+        <p class="mission-desc">A 2D platformer built for Deltatime GameJam (theme: "Death is Not the End") — collect light orbs and carry them to darkened shrines to rekindle them. My first Unity project, built from scratch under hackathon time constraints. A year later I rebuilt it and shipped a significantly better version.</p>
+        <div class="mission-stack">
+          <span class="stack-chip">UNITY 2D</span>
+          <span class="stack-chip">C#</span>
+          <span class="stack-chip">GAME DESIGN</span>
+          <span class="stack-chip">LEVEL DESIGN</span>
+        </div>
+        <div class="mission-links">
+          <a href="https://github.com/Aryan-20-2006/Platformer" target="_blank" class="mission-link">▸ GITHUB</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -917,7 +807,6 @@
   </footer>
 
   <script>
-
     // LOADER
     const loaderStatuses = ['Loading assets...','Spawning player...','Equipping skills...','Loading missions...','Almost ready...'];
     const fill = document.getElementById('loader-fill');
