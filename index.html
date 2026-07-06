@@ -37,473 +37,108 @@
       content: '';
       position: fixed;
       inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 3px,
-        rgba(0,0,0,0.1) 3px,
-        rgba(0,0,0,0.1) 4px
-      );
+      background: repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px);
       pointer-events: none;
       z-index: 9999;
     }
 
-    .marquee-bar {
-      background: #0D0D0D;
-      padding: 7px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      border-bottom: 2px solid var(--cyan);
-    }
+    .marquee-bar { background: #0D0D0D; padding: 7px 0; overflow: hidden; white-space: nowrap; border-bottom: 2px solid var(--cyan); }
+    .marquee-inner { display: inline-block; animation: marquee 20s linear infinite; font-family: var(--mono); font-size: 11px; color: var(--cyan); letter-spacing: 0.15em; text-shadow: 0 0 6px rgba(0,200,215,0.4); }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .marquee-inner {
-      display: inline-block;
-      animation: marquee 20s linear infinite;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 0.15em;
-      text-shadow: 0 0 6px rgba(0,200,215,0.4);
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 48px;
-      border-bottom: 1px solid #1a1a1a;
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-logo {
-      font-family: var(--pixel);
-      font-size: 10px;
-      color: var(--cyan);
-      text-decoration: none;
-      text-shadow: 0 0 8px rgba(0,200,215,0.5);
-    }
-
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; border-bottom: 1px solid #1a1a1a; background: var(--bg); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--pixel); font-size: 10px; color: var(--cyan); text-decoration: none; text-shadow: 0 0 8px rgba(0,200,215,0.5); }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-
+    .nav-links a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color 0.15s; }
     .nav-links a:hover { color: var(--yellow); text-shadow: 0 0 6px rgba(212,168,0,0.5); }
 
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-stars {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
-        radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.3) 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--yellow);
-      letter-spacing: 0.2em;
-      margin-bottom: 32px;
-      text-shadow: 0 0 8px rgba(212,168,0,0.5);
-    }
-
-    .hero-title {
-      font-family: var(--pixel);
-      font-size: clamp(28px, 5vw, 56px);
-      color: var(--cyan);
-      line-height: 1.3;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 16px rgba(0,200,215,0.4), 3px 3px 0px #1a1a3a;
-      margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-      font-family: var(--mono);
-      font-size: clamp(13px, 1.5vw, 16px);
-      color: #888;
-      margin-bottom: 48px;
-      letter-spacing: 0.1em;
-    }
-
-    .insert-coin {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--yellow);
-      letter-spacing: 0.15em;
-      animation: blink 1s step-end infinite;
-      margin-bottom: 48px;
-      text-shadow: 0 0 6px rgba(212,168,0,0.4);
-    }
-
+    #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 40px; position: relative; overflow: hidden; }
+    .hero-stars { position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2) 0%, transparent 100%), radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1px 1px at 75% 80%, rgba(255,255,255,0.2) 0%, transparent 100%), radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.2) 0%, transparent 100%), radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.3) 0%, transparent 100%); pointer-events: none; }
+    .hero-eyebrow { font-family: var(--mono); font-size: 12px; color: var(--yellow); letter-spacing: 0.2em; margin-bottom: 32px; text-shadow: 0 0 8px rgba(212,168,0,0.5); }
+    .hero-title { font-family: var(--pixel); font-size: clamp(28px, 5vw, 56px); color: var(--cyan); line-height: 1.3; letter-spacing: 0.05em; text-shadow: 0 0 16px rgba(0,200,215,0.4), 3px 3px 0px #1a1a3a; margin-bottom: 8px; }
+    .hero-subtitle { font-family: var(--mono); font-size: clamp(13px, 1.5vw, 16px); color: #888; margin-bottom: 48px; letter-spacing: 0.1em; }
+    .insert-coin { font-family: var(--mono); font-size: 13px; color: var(--yellow); letter-spacing: 0.15em; animation: blink 1s step-end infinite; margin-bottom: 48px; text-shadow: 0 0 6px rgba(212,168,0,0.4); }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .hero-scores {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-
+    .hero-scores { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
     .score-item { text-align: center; }
-
-    .score-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 8px;
-      letter-spacing: 0.1em;
-    }
-
-    .score-value {
-      font-family: var(--mono);
-      font-size: 28px;
-      color: var(--yellow);
-      text-shadow: 0 0 8px rgba(212,168,0,0.4);
-    }
+    .score-label { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; margin-bottom: 8px; letter-spacing: 0.1em; }
+    .score-value { font-family: var(--mono); font-size: 28px; color: var(--yellow); text-shadow: 0 0 8px rgba(212,168,0,0.4); }
 
     .hero-cta { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-
-    .btn-arcade {
-      font-family: var(--mono);
-      font-size: 13px;
-      text-decoration: none;
-      padding: 14px 24px;
-      letter-spacing: 0.05em;
-      transition: all 0.1s;
-      display: inline-block;
-    }
-
+    .btn-arcade { font-family: var(--mono); font-size: 13px; text-decoration: none; padding: 14px 24px; letter-spacing: 0.05em; transition: all 0.1s; display: inline-block; }
     .btn-arcade.solid { background: var(--cyan); color: #000; box-shadow: 3px 3px 0 #005060; }
     .btn-arcade.solid:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #005060; }
     .btn-arcade.outline { border: 2px solid var(--yellow); color: var(--yellow); box-shadow: 3px 3px 0 #332800; }
     .btn-arcade.outline:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #332800; }
 
-    .pixel-divider {
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--cyan) 0px, var(--cyan) 8px,
-        var(--yellow) 8px, var(--yellow) 16px,
-        var(--purple) 16px, var(--purple) 24px,
-        #1a1a1a 24px, #1a1a1a 32px
-      );
-    }
+    .pixel-divider { height: 4px; background: repeating-linear-gradient(90deg, var(--cyan) 0px, var(--cyan) 8px, var(--yellow) 8px, var(--yellow) 16px, var(--purple) 16px, var(--purple) 24px, #1a1a1a 24px, #1a1a1a 32px); }
 
     section { padding: 80px 60px; }
-
     .section-header { margin-bottom: 48px; }
+    .section-eyebrow { font-family: var(--mono); font-size: 12px; color: var(--cyan); letter-spacing: 0.15em; text-shadow: 0 0 6px rgba(0,200,215,0.3); display: block; margin-bottom: 16px; }
+    .section-title { font-family: var(--pixel); font-size: clamp(14px, 2.5vw, 20px); color: var(--text-bright); text-shadow: 2px 2px 0 #1a1a2a; line-height: 1.5; }
 
-    .section-eyebrow {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--cyan);
-      letter-spacing: 0.15em;
-      text-shadow: 0 0 6px rgba(0,200,215,0.3);
-      display: block;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: var(--pixel);
-      font-size: clamp(14px, 2.5vw, 20px);
-      color: var(--text-bright);
-      text-shadow: 2px 2px 0 #1a1a2a;
-      line-height: 1.5;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-family: var(--mono);
-      font-size: 15px;
-      color: #888;
-      line-height: 1.9;
-      margin-bottom: 16px;
-    }
-
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+    .about-text p { font-family: var(--mono); font-size: 15px; color: #888; line-height: 1.9; margin-bottom: 16px; }
     .about-text p strong { color: var(--text-bright); }
 
     .stat-bars { display: flex; flex-direction: column; gap: 20px; }
     .stat-row { display: flex; flex-direction: column; gap: 8px; }
-
-    .stat-top {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--pixel);
-      font-size: 7px;
-    }
-
+    .stat-top { display: flex; justify-content: space-between; }
     .stat-name { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
     .stat-num { font-family: var(--mono); font-size: 12px; color: var(--yellow); }
-
     .stat-bar { height: 10px; background: #111; border: 1px solid #1e1e1e; overflow: hidden; }
-
-    .stat-fill {
-      height: 100%;
-      width: 0%;
-      transition: width 1.2s steps(20, end);
-    }
-
+    .stat-fill { height: 100%; width: 0%; transition: width 1.2s steps(20, end); }
     .stat-fill.cyan { background: var(--cyan); box-shadow: 0 0 6px rgba(0,200,215,0.4); }
     .stat-fill.yellow { background: var(--yellow); box-shadow: 0 0 6px rgba(212,168,0,0.4); }
     .stat-fill.purple { background: var(--purple); box-shadow: 0 0 6px rgba(155,89,208,0.4); }
     .stat-fill.green { background: var(--green); box-shadow: 0 0 6px rgba(46,204,113,0.4); }
 
-    .missions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .mission-card {
-      background: var(--surface);
-      border: 2px solid #1a1a1a;
-      padding: 28px;
-      position: relative;
-      transition: border-color 0.15s;
-    }
-
-    .mission-card::before {
-      content: '';
-      position: absolute;
-      top: -2px; left: -2px;
-      width: 12px; height: 12px;
-      background: var(--bg);
-      border-right: 2px solid #1a1a1a;
-      border-bottom: 2px solid #1a1a1a;
-    }
-
-    .mission-card::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; right: -2px;
-      width: 12px; height: 12px;
-      background: var(--bg);
-      border-left: 2px solid #1a1a1a;
-      border-top: 2px solid #1a1a1a;
-    }
-
+    .missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .mission-card { background: var(--surface); border: 2px solid #1a1a1a; padding: 28px; position: relative; transition: border-color 0.15s; }
+    .mission-card::before { content: ''; position: absolute; top: -2px; left: -2px; width: 12px; height: 12px; background: var(--bg); border-right: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; }
+    .mission-card::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; background: var(--bg); border-left: 2px solid #1a1a1a; border-top: 2px solid #1a1a1a; }
     .mission-card:hover { border-color: var(--cyan); }
-
-    .mission-status {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .mission-status { font-family: var(--mono); font-size: 12px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     .mission-status::before { content: '■'; font-size: 8px; animation: blink 1.5s step-end infinite; }
-
-    .mission-title {
-      font-family: var(--pixel);
-      font-size: 13px;
-      color: var(--yellow);
-      text-shadow: 2px 2px 0 #332800;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .mission-desc {
-      font-family: var(--mono);
-      font-size: 14px;
-      color: #777;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
+    .mission-title { font-family: var(--pixel); font-size: 13px; color: var(--yellow); text-shadow: 2px 2px 0 #332800; margin-bottom: 16px; line-height: 1.6; }
+    .mission-desc { font-family: var(--mono); font-size: 14px; color: #777; line-height: 1.8; margin-bottom: 20px; }
     .mission-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-
-    .stack-chip {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--purple);
-      border: 1px solid #2a1a3a;
-      background: #0d0a12;
-      padding: 4px 8px;
-      letter-spacing: 0.06em;
-    }
-
+    .stack-chip { font-family: var(--mono); font-size: 11px; color: var(--purple); border: 1px solid #2a1a3a; background: #0d0a12; padding: 4px 8px; letter-spacing: 0.06em; }
     .mission-links { border-top: 1px solid #1a1a1a; padding-top: 16px; display: flex; gap: 20px; }
-
-    .mission-link {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--cyan);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      transition: opacity 0.15s;
-    }
-
+    .mission-link { font-family: var(--mono); font-size: 12px; color: var(--cyan); text-decoration: none; letter-spacing: 0.1em; transition: opacity 0.15s; }
     .mission-link:hover { opacity: 0.6; }
 
     .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-
     .skill-node { border: 1px solid #1a1a1a; padding: 20px; background: var(--surface); transition: border-color 0.15s; }
     .skill-node:hover { border-color: var(--cyan); }
-
-    .skill-node-title {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #1a1a1a;
-    }
-
+    .skill-node-title { font-family: var(--mono); font-size: 12px; color: var(--cyan); letter-spacing: 0.12em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
     .skill-list { display: flex; flex-direction: column; gap: 10px; }
-
-    .skill-item {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: #777;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .skill-item { font-family: var(--mono); font-size: 13px; color: #777; display: flex; align-items: center; gap: 8px; }
     .skill-item::before { content: '▸'; color: var(--cyan); font-size: 10px; }
 
     .achievement-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
-
-    .achievement {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      border: 1px solid #1a1a1a;
-      padding: 16px 20px;
-      background: var(--surface);
-      transition: border-color 0.15s;
-    }
-
+    .achievement { display: flex; align-items: flex-start; gap: 16px; border: 1px solid #1a1a1a; padding: 16px 20px; background: var(--surface); transition: border-color 0.15s; }
     .achievement:hover { border-color: var(--yellow); }
     .ach-icon { font-size: 16px; flex-shrink: 0; }
-
     .ach-text { font-family: var(--mono); font-size: 14px; color: #777; line-height: 1.7; }
+    .ach-text strong { font-family: var(--mono); font-size: 13px; color: var(--yellow); display: block; margin-bottom: 6px; letter-spacing: 0.06em; }
 
-    .ach-text strong {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--yellow);
-      display: block;
-      margin-bottom: 6px;
-      letter-spacing: 0.06em;
-    }
-
-    .contact-box {
-      max-width: 580px;
-      border: 2px solid #1a1a1a;
-      padding: 40px;
-      background: var(--surface);
-      position: relative;
-    }
-
-    .contact-box-label {
-      position: absolute;
-      top: -10px; left: 20px;
-      background: var(--bg);
-      padding: 0 10px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 0.1em;
-    }
-
+    .contact-box { max-width: 580px; border: 2px solid #1a1a1a; padding: 40px; background: var(--surface); position: relative; }
+    .contact-box-label { position: absolute; top: -10px; left: 20px; background: var(--bg); padding: 0 10px; font-family: var(--mono); font-size: 11px; color: var(--cyan); letter-spacing: 0.1em; }
     .contact-box p { font-family: var(--mono); font-size: 15px; color: #777; line-height: 1.8; margin-bottom: 32px; }
     .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
 
-    footer {
-      padding: 20px 60px;
-      border-top: 1px solid #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-    }
+    footer { padding: 20px 60px; border-top: 1px solid #111; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
-    /* LOADER */
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      z-index: 99999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      transition: opacity 0.6s ease;
-    }
-
+    #loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; transition: opacity 0.6s ease; }
     #loader.fade-out { opacity: 0; pointer-events: none; }
-
-    .loader-title {
-      font-family: var(--pixel);
-      font-size: clamp(16px, 3vw, 28px);
-      color: var(--cyan);
-      text-shadow: 0 0 16px rgba(0,200,215,0.6);
-      letter-spacing: 0.1em;
-    }
-
+    .loader-title { font-family: var(--pixel); font-size: clamp(16px, 3vw, 28px); color: var(--cyan); text-shadow: 0 0 16px rgba(0,200,215,0.6); letter-spacing: 0.1em; }
     .loader-sub { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; }
-
     .loader-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 280px; }
-
     .loader-bar { width: 100%; height: 12px; background: #111; border: 1px solid #222; overflow: hidden; }
-
-    .loader-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--cyan);
-      box-shadow: 0 0 8px rgba(0,200,215,0.6);
-      transition: width 0.15s linear;
-    }
-
+    .loader-fill { height: 100%; width: 0%; background: var(--cyan); box-shadow: 0 0 8px rgba(0,200,215,0.6); transition: width 0.15s linear; }
     .loader-percent { font-family: var(--mono); font-size: 13px; color: var(--yellow); letter-spacing: 0.1em; }
     .loader-status { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; min-height: 16px; }
 
@@ -558,26 +193,12 @@
     <h1 class="hero-title">ARYAN<br>BURMAN</h1>
     <p class="hero-subtitle">CS ENG + GAME DEV + AI BUILDER</p>
     <p class="insert-coin">— INSERT COIN TO CONTINUE —</p>
-
     <div class="hero-scores">
-      <div class="score-item">
-        <span class="score-label">CGPA</span>
-        <span class="score-value">8.1</span>
-      </div>
-      <div class="score-item">
-        <span class="score-label">PROJECTS</span>
-        <span class="score-value">03</span>
-      </div>
-      <div class="score-item">
-        <span class="score-label">PRs MERGED</span>
-        <span class="score-value">04</span>
-      </div>
-      <div class="score-item">
-        <span class="score-label">HACKATHONS</span>
-        <span class="score-value">03</span>
-      </div>
+      <div class="score-item"><span class="score-label">CGPA</span><span class="score-value">8.1</span></div>
+      <div class="score-item"><span class="score-label">PROJECTS</span><span class="score-value">03</span></div>
+      <div class="score-item"><span class="score-label">PRs MERGED</span><span class="score-value">04</span></div>
+      <div class="score-item"><span class="score-label">HACKATHONS</span><span class="score-value">03</span></div>
     </div>
-
     <div class="hero-cta">
       <a href="#projects" class="btn-arcade solid">▸ VIEW MISSIONS</a>
       <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
@@ -600,31 +221,19 @@
       </div>
       <div class="stat-bars">
         <div class="stat-row">
-          <div class="stat-top">
-            <span class="stat-name">GAME DEV</span>
-            <span class="stat-num">82/100</span>
-          </div>
+          <div class="stat-top"><span class="stat-name">GAME DEV</span><span class="stat-num">82/100</span></div>
           <div class="stat-bar"><div class="stat-fill cyan" data-width="82"></div></div>
         </div>
         <div class="stat-row">
-          <div class="stat-top">
-            <span class="stat-name">BACKEND / AI</span>
-            <span class="stat-num">70/100</span>
-          </div>
+          <div class="stat-top"><span class="stat-name">BACKEND / AI</span><span class="stat-num">70/100</span></div>
           <div class="stat-bar"><div class="stat-fill yellow" data-width="70"></div></div>
         </div>
         <div class="stat-row">
-          <div class="stat-top">
-            <span class="stat-name">PROBLEM SOLVING</span>
-            <span class="stat-num">78/100</span>
-          </div>
+          <div class="stat-top"><span class="stat-name">PROBLEM SOLVING</span><span class="stat-num">78/100</span></div>
           <div class="stat-bar"><div class="stat-fill purple" data-width="78"></div></div>
         </div>
         <div class="stat-row">
-          <div class="stat-top">
-            <span class="stat-name">OPEN SOURCE</span>
-            <span class="stat-num">65/100</span>
-          </div>
+          <div class="stat-top"><span class="stat-name">OPEN SOURCE</span><span class="stat-num">65/100</span></div>
           <div class="stat-bar"><div class="stat-fill green" data-width="65"></div></div>
         </div>
       </div>
@@ -646,11 +255,7 @@
         <h3 class="mission-title">TRACEAI</h3>
         <p class="mission-desc">A RAG pipeline built from scratch — upload any PDF, ask questions in plain English, get answers traced back to their source. No hallucination. Every answer cites the exact chunks it used.</p>
         <div class="mission-stack">
-          <span class="stack-chip">FASTAPI</span>
-          <span class="stack-chip">LANGCHAIN</span>
-          <span class="stack-chip">FAISS</span>
-          <span class="stack-chip">GEMINI</span>
-          <span class="stack-chip">PYTHON</span>
+          <span class="stack-chip">FASTAPI</span><span class="stack-chip">LANGCHAIN</span><span class="stack-chip">FAISS</span><span class="stack-chip">GEMINI</span><span class="stack-chip">PYTHON</span>
         </div>
         <div class="mission-links">
           <a href="https://rag-doc-qa-aryan.onrender.com/app" target="_blank" class="mission-link">▸ LIVE DEMO</a>
@@ -663,10 +268,7 @@
         <h3 class="mission-title">FOREST SURVIVAL</h3>
         <p class="mission-desc">A 3D survival game in Unity — resource collection, hunger and campfire systems, day-night cycles, full menu-to-end-game flow. Rebuilt with systems-first architecture after v1 became impossible to extend.</p>
         <div class="mission-stack">
-          <span class="stack-chip">UNITY 3D</span>
-          <span class="stack-chip">C#</span>
-          <span class="stack-chip">OOP</span>
-          <span class="stack-chip">GAME ARCH</span>
+          <span class="stack-chip">UNITY 3D</span><span class="stack-chip">C#</span><span class="stack-chip">OOP</span><span class="stack-chip">GAME ARCH</span>
         </div>
         <div class="mission-links">
           <a href="https://github.com/Aryan-20-2006/Forest-Survival" target="_blank" class="mission-link">▸ GITHUB</a>
@@ -676,15 +278,12 @@
       <div class="mission-card reveal">
         <div class="mission-status">MISSION COMPLETE</div>
         <h3 class="mission-title">SHRINE RUNNER</h3>
-        <p class="mission-desc">A 2D platformer built for Deltatime GameJam (theme: "Death is Not the End") — collect light orbs and carry them to darkened shrines to rekindle them. My first Unity project, built from scratch under hackathon time constraints. A year later I rebuilt it and shipped a significantly better version.</p>
+        <p class="mission-desc">A 2D platformer built for Deltatime GameJam (theme: "Death is Not the End") — collect light orbs and carry them to darkened shrines to rekindle them. Built from scratch under hackathon constraints, then rebuilt a year later into a significantly better version.</p>
         <div class="mission-stack">
-          <span class="stack-chip">UNITY 2D</span>
-          <span class="stack-chip">C#</span>
-          <span class="stack-chip">GAME DESIGN</span>
-          <span class="stack-chip">LEVEL DESIGN</span>
+          <span class="stack-chip">UNITY 2D</span><span class="stack-chip">C#</span><span class="stack-chip">GAME DESIGN</span><span class="stack-chip">LEVEL DESIGN</span>
         </div>
         <div class="mission-links">
-          <a href="https://github.com/Aryan-20-2006/Platformer" target="_blank" class="mission-link">▸ GITHUB</a>
+          <a href="https://github.com/Aryan-20-2006/Shrine-Runner" target="_blank" class="mission-link">▸ GITHUB</a>
         </div>
       </div>
 
@@ -703,41 +302,25 @@
       <div class="skill-node">
         <div class="skill-node-title">LANGUAGES</div>
         <div class="skill-list">
-          <span class="skill-item">Python</span>
-          <span class="skill-item">C#</span>
-          <span class="skill-item">C++</span>
-          <span class="skill-item">JavaScript</span>
-          <span class="skill-item">HTML / CSS</span>
-          <span class="skill-item">C</span>
+          <span class="skill-item">Python</span><span class="skill-item">C#</span><span class="skill-item">C++</span><span class="skill-item">JavaScript</span><span class="skill-item">HTML / CSS</span><span class="skill-item">C</span>
         </div>
       </div>
       <div class="skill-node">
         <div class="skill-node-title">BACKEND & AI</div>
         <div class="skill-list">
-          <span class="skill-item">FastAPI</span>
-          <span class="skill-item">LangChain</span>
-          <span class="skill-item">FAISS</span>
-          <span class="skill-item">RAG Pipelines</span>
-          <span class="skill-item">REST APIs</span>
+          <span class="skill-item">FastAPI</span><span class="skill-item">LangChain</span><span class="skill-item">FAISS</span><span class="skill-item">RAG Pipelines</span><span class="skill-item">REST APIs</span>
         </div>
       </div>
       <div class="skill-node">
         <div class="skill-node-title">GAME DEV</div>
         <div class="skill-list">
-          <span class="skill-item">Unity 2D / 3D</span>
-          <span class="skill-item">Game Loop Design</span>
-          <span class="skill-item">Level Design</span>
-          <span class="skill-item">Systems Arch</span>
+          <span class="skill-item">Unity 2D / 3D</span><span class="skill-item">Game Loop Design</span><span class="skill-item">Level Design</span><span class="skill-item">Systems Arch</span>
         </div>
       </div>
       <div class="skill-node">
         <div class="skill-node-title">TOOLS</div>
         <div class="skill-list">
-          <span class="skill-item">GitHub</span>
-          <span class="skill-item">VS Code</span>
-          <span class="skill-item">Render</span>
-          <span class="skill-item">Unity Editor</span>
-          <span class="skill-item">Notion</span>
+          <span class="skill-item">GitHub</span><span class="skill-item">VS Code</span><span class="skill-item">Render</span><span class="skill-item">Unity Editor</span><span class="skill-item">Notion</span>
         </div>
       </div>
     </div>
@@ -754,31 +337,19 @@
     <div class="achievement-list reveal">
       <div class="achievement">
         <span class="ach-icon">🏆</span>
-        <div class="ach-text">
-          <strong>CNR RAO SCHOLAR</strong>
-          ₹1,00,000 awarded for academic excellence at PES University EC (2024–25)
-        </div>
+        <div class="ach-text"><strong>CNR RAO SCHOLAR</strong>₹1,00,000 awarded for academic excellence at PES University EC (2024–25)</div>
       </div>
       <div class="achievement">
         <span class="ach-icon">⭐</span>
-        <div class="ach-text">
-          <strong>DISTINCTION CERTIFICATES</strong>
-          ₹2,000 awards for academic performance in 2nd and 3rd semesters
-        </div>
+        <div class="ach-text"><strong>DISTINCTION CERTIFICATES</strong>₹2,000 awards for academic performance in 2nd and 3rd semesters</div>
       </div>
       <div class="achievement">
         <span class="ach-icon">🎮</span>
-        <div class="ach-text">
-          <strong>DELTATIME GAMEJAM — PARALLAX PESU EC</strong>
-          Participated twice. 4th sem shipped a polished 2D platformer surpassing the original 2nd sem vision when first learning Unity.
-        </div>
+        <div class="ach-text"><strong>DELTATIME GAMEJAM — PARALLAX PESU EC</strong>Participated twice. 4th sem shipped a polished 2D platformer surpassing the original 2nd sem vision when first learning Unity.</div>
       </div>
       <div class="achievement">
         <span class="ach-icon">🔀</span>
-        <div class="ach-text">
-          <strong>HACKNIGHT 2025 — ACM PESU EC</strong>
-          4 merged PRs to an open-source Verilog repo (Shift Register, FIFO, LFSR, Parallel-to-Serial) — one of the few 3rd-semester participants.
-        </div>
+        <div class="ach-text"><strong>HACKNIGHT 2025 — ACM PESU EC</strong>4 merged PRs to an open-source Verilog repo (Shift Register, FIFO, LFSR, Parallel-to-Serial) — one of the few 3rd-semester participants.</div>
       </div>
     </div>
   </section>
@@ -797,6 +368,7 @@
       <div class="contact-links">
         <a href="mailto:daringdumplings@gmail.com" class="btn-arcade solid">▸ EMAIL</a>
         <a href="https://github.com/Aryan-20-2006" target="_blank" class="btn-arcade outline">▸ GITHUB</a>
+        <a href="https://linkedin.com/in/aryan-burman-2483b82a4" target="_blank" class="btn-arcade outline">▸ LINKEDIN</a>
       </div>
     </div>
   </section>
@@ -807,7 +379,6 @@
   </footer>
 
   <script>
-    // LOADER
     const loaderStatuses = ['Loading assets...','Spawning player...','Equipping skills...','Loading missions...','Almost ready...'];
     const fill = document.getElementById('loader-fill');
     const percent = document.getElementById('loader-percent');
@@ -831,9 +402,7 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-          e.target.querySelectorAll('.stat-fill').forEach(bar => {
-            bar.style.width = bar.dataset.width + '%';
-          });
+          e.target.querySelectorAll('.stat-fill').forEach(bar => { bar.style.width = bar.dataset.width + '%'; });
         }
       });
     }, { threshold: 0.1 });
